@@ -28,8 +28,8 @@ class BizCity3D {
     }
 
     init() {
-        const width = this.container.clientWidth;
-        const height = this.container.clientHeight;
+        const width = this.container.clientWidth || window.innerWidth || 1200;
+        const height = this.container.clientHeight || (window.innerHeight - 56) || 700;
 
         // Scene
         this.scene = new THREE.Scene();
@@ -616,8 +616,8 @@ class BizCity3D {
 
     onWindowResize() {
         if (!this.container || !this.renderer || !this.camera) return;
-        const width = this.container.clientWidth;
-        const height = this.container.clientHeight;
+        const width = this.container.clientWidth || window.innerWidth || 1200;
+        const height = this.container.clientHeight || (window.innerHeight - 56) || 700;
         this.camera.aspect = width / height;
         this.camera.updateProjectionMatrix();
         this.renderer.setSize(width, height);

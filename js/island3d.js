@@ -344,8 +344,8 @@ class BizIsland3D {
 
     onWindowResize() {
         if (!this.container || !this.renderer || !this.camera) return;
-        const width = this.container.clientWidth;
-        const height = this.container.clientHeight;
+        const width = this.container.clientWidth || 800;
+        const height = this.container.clientHeight || 500;
         this.camera.aspect = width / height;
         this.camera.updateProjectionMatrix();
         this.renderer.setSize(width, height);

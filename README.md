@@ -124,6 +124,33 @@ bizzyverse/
 
 ---
 
+## ⚡ Deployment Langsung ke Vercel
+
+Proyek ini telah dilengkapi dengan konfigurasi `vercel.json` dan serverless API (`/api/status`, `/api/leaderboard`) sehingga siap di-deploy langsung ke Vercel tanpa konfigurasi rumit tambahan:
+
+### Cara 1: Menggunakan Vercel Dashboard (Rekomendasi)
+1. Buka [Vercel Dashboard](https://vercel.com/dashboard) dan klik tombol **"Add New..."** ➔ **"Project"**.
+2. Hubungkan akun GitHub Anda dan pilih repositori:
+   👉 `https://github.com/avoliofun-dev/bizzyverse`
+3. Pada pengaturan proyek:
+   - **Framework Preset**: Pilih `Other` (atau biarkan default, otomatis mengenali `vercel.json`).
+   - **Root Directory**: `./`
+   - **Build Command**: Kosongkan atau gunakan default (`npm run build`).
+   - **Output Directory**: Kosongkan (otomatis melayani root berkas statis `index.html`).
+4. Klik **Deploy**. Dalam 30 detik web akan aktif secara live dengan URL `https://bizzyverse.vercel.app` (atau nama domain pilihan Anda) dengan tampilan 100% identik seperti di lokal!
+
+### Cara 2: Menggunakan Vercel CLI di Terminal
+```bash
+# 1. Pasang Vercel CLI (jika belum ada)
+npm i -g vercel
+
+# 2. Deploy proyek langsung
+vercel --prod
+```
+
+---
+
 ## 📜 Lisensi
 
 Proyek ini dilisensikan di bawah lisensi **MIT**. Bebas digunakan dan dikembangkan untuk tujuan komersial maupun edukatif.
+
