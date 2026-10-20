@@ -1,0 +1,20 @@
+{
+  "name": "bizzyverse",
+  "version": "1.0.0",
+  "description": "BIZVERSE - Dunia Bisnis Virtual 3D & Metaverse Korporat berbasis JavaScript Framework",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "metaverse",
+    "business-simulation",
+    "threejs",
+    "roblox-avatar",
+    "virtual-economy",
+    "javascript"
+  ],
+  "author": "avoliofun-dev",
+  "license": "MIT"
+}

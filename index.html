@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIZVERSE // Dunia Bisnis Virtual & Metaverse Korporat</title>
+    <meta name="description" content="Platform simulasi dunia bisnis virtual generasi masa depan dengan Pulau Pribadi 3D, avatar bergerak mirip Roblox, bursa efek Apex, jaringan sosial antarpemain, dan konsol administrasi.">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22%3E<text y=%2226%22 font-size=%2224%22>🌐</text></svg>">
+</head>
+<body>
+
+    <!-- SIARAN PENGUMUMAN DARURAT ADMIN GLOBAL -->
+    <div id="global-admin-broadcast-banner"></div>
+
+    <!-- LATAR GELAP PENUTUP SIDEBAR (BACKDROP) -->
+    <div id="sidebar-backdrop" onclick="window.bizApp.closeSidebar()"></div>
+
+    <!-- SIDEBAR KIRI TERTUTUP SECARA DEFAULT -->
+    <aside id="left-app-sidebar">
+        <div class="sidebar-header">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <div class="brand-logo-cube">B</div>
+                <div>
+                    <h3 style="font-family: var(--font-heading); font-size: 16px; font-weight: 800;">BIZVERSE</h3>
+                    <span style="font-size: 10px; color: var(--primary-cyan); font-weight: 700;">MENU KELOMPOK KERJA</span>
+                </div>
+            </div>
+            <button class="btn btn-icon" onclick="window.bizApp.closeSidebar()" title="Tutup Menu">✕</button>
+        </div>
+
+        <div class="sidebar-scroll-content">
+
+            <!-- KELOMPOK 1: BISNIS & METAVERSE -->
+            <div class="sidebar-nav-group">
+                <span class="sidebar-group-title business">🏢 Sektor Bisnis & Metaverse</span>
+
+                <button class="sidebar-nav-item active" data-tab="city" onclick="window.bizApp.switchTab('city')">
+                    <span class="sidebar-item-icon">🏙️</span>
+                    <div class="sidebar-item-text">
+                        <div>Metropolis 3D</div>
+                        <div class="sidebar-item-desc">Distrik Pusat Bisnis & Megastruktur</div>
+                    </div>
+                </button>
+
+                <button class="sidebar-nav-item" data-tab="island" onclick="window.bizApp.switchTab('island')">
+                    <span class="sidebar-item-icon">🏝️</span>
+                    <div class="sidebar-item-text">
+                        <div>Pulau Pribadi</div>
+                        <div class="sidebar-item-desc">Dunia 3D & Avatar Roblox Bergerak</div>
+                    </div>
+                </button>
+
+                <button class="sidebar-nav-item" data-tab="office" onclick="window.bizApp.switchTab('office')">
+                    <span class="sidebar-item-icon">🏢</span>
+                    <div class="sidebar-item-text">
+                        <div>Kantor Virtual</div>
+                        <div class="sidebar-item-desc">Simulasi Staf & Fasilitas Kerja 2.5D</div>
+                    </div>
+                </button>
+
+                <button class="sidebar-nav-item" data-tab="boardroom" onclick="window.bizApp.switchTab('boardroom')">
+                    <span class="sidebar-item-icon">👔</span>
+                    <div class="sidebar-item-text">
+                        <div>Dewan Direksi & Kontrak</div>
+                        <div class="sidebar-item-desc">Penasihat AI C-Suite & Proyek B2B</div>
+                    </div>
+                </button>
+            </div>
+
+            <!-- KELOMPOK 2: KEUANGAN & PASAR MODAL -->
+            <div class="sidebar-nav-group">
+                <span class="sidebar-group-title finance">💰 Keuangan & Pasar Modal</span>
+
+                <button class="sidebar-nav-item" data-tab="market" onclick="window.bizApp.switchTab('market')">
+                    <span class="sidebar-item-icon">📈</span>
+                    <div class="sidebar-item-text">
+                        <div>Bursa Efek Apex</div>
+                        <div class="sidebar-item-desc">Perdagangan Saham & Grafik Real-Time</div>
+                    </div>
+                </button>
+
+                <button class="sidebar-nav-item" data-tab="p2p" onclick="window.bizApp.switchTab('p2p')">
+                    <span class="sidebar-item-icon">🛒</span>
+                    <div class="sidebar-item-text">
+                        <div>Pasar Antar-Pemain (P2P)</div>
+                        <div class="sidebar-item-desc">Jual-Beli Kavling & Lisensi Bisnis</div>
+                    </div>
+                </button>
+
+                <button class="sidebar-nav-item" data-tab="ledger" onclick="window.bizApp.switchTab('ledger')">
+                    <span class="sidebar-item-icon">📊</span>
+                    <div class="sidebar-item-text">
+                        <div>Laporan Neraca Keuangan</div>
+                        <div class="sidebar-item-desc">Papan Peringkat Dunia & Buku Kas</div>
+                    </div>
+                </button>
+            </div>
+
+            <!-- KELOMPOK 3: FUNGSI WEB & SISTEM SOSIAL -->
+            <div class="sidebar-nav-group">
+                <span class="sidebar-group-title system">⚙️ Fungsi Web, Sosial & Sistem</span>
+
+                <button class="sidebar-nav-item" data-tab="social" onclick="window.bizApp.switchTab('social')">
+                    <span class="sidebar-item-icon">🌐</span>
+                    <div class="sidebar-item-text">
+                        <div>Obrolan & Jaringan Sosial</div>
+                        <div class="sidebar-item-desc">Komunitas CEO & Emotikon Avatar</div>
+                    </div>
+                </button>
+
+                <button class="sidebar-nav-item" onclick="window.bizStages.openStagesModal()">
+                    <span class="sidebar-item-icon">🗺️</span>
+                    <div class="sidebar-item-text">
+                        <div>Alur 4 Tahap Karir CEO</div>
+                        <div class="sidebar-item-desc">Gabung, Bangun, Hubungkan, Bersaing</div>
+                    </div>
+                </button>
+
+                <button class="sidebar-nav-item" onclick="document.getElementById('profile-modal').classList.add('active'); window.bizApp.closeSidebar();">
+                    <span class="sidebar-item-icon">👤</span>
+                    <div class="sidebar-item-text">
+                        <div>Akun & Kustomisasi Avatar</div>
+                        <div class="sidebar-item-desc">Warna Kulit, Setelan Jas & Topi</div>
+                    </div>
+                </button>
+
+                <button class="sidebar-nav-item" onclick="window.bizAdmin.toggleAdminModal(); window.bizApp.closeSidebar();">
+                    <span class="sidebar-item-icon">🛡️</span>
+                    <div class="sidebar-item-text">
+                        <div>Panel Admin & Moderasi</div>
+                        <div class="sidebar-item-desc">Pengawasan Server & Intervensi Kas</div>
+                    </div>
+                </button>
+
+                <button class="sidebar-nav-item" onclick="document.getElementById('about-modal').classList.add('active'); window.bizApp.closeSidebar();">
+                    <span class="sidebar-item-icon">ℹ️</span>
+                    <div class="sidebar-item-text">
+                        <div>Panduan & Informasi Dunia</div>
+                        <div class="sidebar-item-desc">Buku Petunjuk Operasional Metaverse</div>
+                    </div>
+                </button>
+            </div>
+
+        </div>
+
+        <div class="sidebar-footer">
+            <span>BIZVERSE v2.5 Enterprise</span>
+            <span class="brand-live-pill" style="font-size: 8px;">
+                <span class="live-dot"></span> SISTEM AKTIF
+            </span>
+        </div>
+    </aside>
+
+    <!-- BILAH ATAS NAVIGASI PROFESIONAL (TOP NAVBAR) -->
+    <header class="top-nav">
+        <div class="brand-section">
+            <!-- Tombol Pembuka Sidebar Kiri -->
+            <button id="btn-sidebar-toggle" class="btn btn-secondary btn-sm" onclick="window.bizApp.toggleSidebar()" title="Buka Menu Sektor Bisnis">
+                <span style="font-size: 16px;">☰</span>
+                <span>Menu Bisnis</span>
+            </button>
+
+            <div class="brand-logo-cube">B</div>
+            <div>
+                <h1 class="brand-title">BIZVERSE</h1>
+                <div class="brand-live-pill">
+                    <span class="live-dot"></span>
+                    <span>DUNIA BISNIS VIRTUAL</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Indikator KPI Finansial Korporat Real-Time -->
+        <div class="kpi-strip">
+            <div class="kpi-item">
+                <span class="kpi-label">Kas Perusahaan</span>
+                <span id="stat-cash" class="kpi-val emerald">$15,000</span>
+            </div>
+            <div class="kpi-divider"></div>
+            <div class="kpi-item">
+                <span class="kpi-label">Valuasi Pasar</span>
+                <span id="stat-valuation" class="kpi-val cyan">$35,000</span>
+            </div>
+            <div class="kpi-divider"></div>
+            <div class="kpi-item">
+                <span class="kpi-label">Arus Kas</span>
+                <span id="stat-rev" class="kpi-val">+$25/s</span>
+            </div>
+            <div class="kpi-divider"></div>
+            <div class="kpi-item">
+                <span class="kpi-label">Status Konglomerat</span>
+                <span id="stat-tier" class="kpi-val" style="font-size: 13px;">Perusahaan Rintisan</span>
+            </div>
+        </div>
+
+        <!-- Kontrol Tindakan & Utilitas Cepat -->
+        <div class="top-controls">
+            <!-- Peta Alur 4 Tahap Karir -->
+            <button class="btn btn-roadmap btn-sm" onclick="window.bizStages.openStagesModal()">
+                <span>🗺️</span>
+                <span id="roadmap-stage-pill">Tahap 1/4: Gabung</span>
+            </button>
+
+            <!-- Tombol Pitch Investor Aktif -->
+            <button id="btn-pitch" class="btn btn-emerald" onclick="window.bizEngine.venturePitchClick()">
+                <span>🚀 Pitch Investor (+$$)</span>
+            </button>
+
+            <!-- Tombol Pengali Pendapatan Viral Blitz -->
+            <button id="btn-viral-boost" class="btn btn-boost" onclick="window.bizEngine.activateBoost()">
+                <span>⚡ Viral Blitz</span>
+            </button>
+
+            <!-- Tombol Layar Penuh (Fullscreen) -->
+            <button id="btn-fullscreen-toggle" class="btn btn-secondary btn-sm" onclick="window.bizApp.toggleFullscreen()" title="Beralih ke Tampilan Layar Penuh">
+                <span>⛶</span>
+                <span>Layar Penuh</span>
+            </button>
+
+            <!-- Tombol Profil Pengguna -->
+            <button class="btn btn-secondary btn-sm" onclick="document.getElementById('profile-modal').classList.add('active')">
+                <span>👤</span>
+                <span id="profile-display-name">Alex Mercer</span>
+            </button>
+
+            <!-- Tombol Panel Admin -->
+            <button class="btn btn-secondary btn-sm" style="border-color: #ef4444; color: #ef4444;" onclick="window.bizAdmin.toggleAdminModal()" title="Buka Panel Admin & Moderasi">
+                🛡️ Admin
+            </button>
+
+            <!-- Tombol Suara & Musik Ambient -->
+            <button id="btn-sound-toggle" class="btn btn-icon" onclick="
+                const muted = window.bizAudio.toggleMute();
+                this.textContent = muted ? '🔇' : '🔊';
+                if (!muted) window.bizAudio.startAmbient();
+            " title="Aktifkan/Nonaktifkan Suara & Musik Ambient">
+                🔊
+            </button>
+        </div>
+    </header>
+
+    <!-- AREA UTAMA PANEL TAMPILAN (MAIN VIEWPORT) -->
+    <main class="main-viewport">
+
+        <!-- PANEL 1: METROPOLIS 3D (Distrik Pusat Bisnis) -->
+        <section id="view-city" class="tab-view-panel active">
+            <div id="metropolis-canvas-container">
+                <!-- Kontrol Tampilan Kamera 3D Melayang -->
+                <div class="city-controls-overlay">
+                    <button class="btn btn-secondary btn-sm" onclick="
+                        const isNight = window.bizCity.toggleDayNight();
+                        this.textContent = isNight ? '🌙 Tengah Malam' : '☀️ Siang Terang';
+                    ">🌙 Tengah Malam</button>
+                    <button class="btn btn-secondary btn-sm" onclick="
+                        const rotating = window.bizCity.toggleAutoRotate();
+                        this.textContent = rotating ? '⏸️ Jeda Rotasi' : '▶️ Putar Otomatis';
+                    ">⏸️ Jeda Rotasi</button>
+                    <button class="btn btn-secondary btn-sm" onclick="window.bizCity.resetCamera()">
+                        🎯 Reset Kamera
+                    </button>
+                </div>
+
+                <!-- Tombol Pintas Sektor Gedung di Bagian Bawah -->
+                <div class="city-sector-pills">
+                    <button class="sector-pill" onclick="window.bizApp.openBuildingInspector('hq')">🏢 Markas Besar Nexus</button>
+                    <button class="sector-pill" onclick="window.bizApp.openBuildingInspector('finance')">📈 Menara Finansial Apex</button>
+                    <button class="sector-pill" onclick="window.bizApp.openBuildingInspector('rnd')">🧠 Riset AI Kuantum</button>
+                    <button class="sector-pill" onclick="window.bizApp.openBuildingInspector('commerce')">🛍️ Galleria Meta-Komersil</button>
+                    <button class="sector-pill" onclick="window.bizApp.openBuildingInspector('logistics')">🚚 Pusat Logistik Otonom</button>
+                    <button class="sector-pill" onclick="window.bizApp.openBuildingInspector('cloud')">☁️ Megaplex Server Awan</button>
+                </div>
+            </div>
+
+            <!-- Petunjuk Informasi 3D Melayang -->
+            <div id="city-3d-tooltip"></div>
+        </section>
+
+        <!-- PANEL 2: PULAU PRIBADI (Dunia 3D & Avatar Roblox Bergerak) -->
+        <section id="view-island" class="tab-view-panel">
+            <div class="island-container">
+                <!-- Kanvas 3D Pulau dengan Pergerakan Avatar -->
+                <div class="island-canvas-wrapper">
+                    <div id="island-canvas-container"></div>
+
+                    <!-- Petunjuk Kendali Gerak Avatar Roblox -->
+                    <div class="avatar-controls-hud">
+                        <div style="display: flex; align-items: center; gap: 6px;">
+                            <span class="key-badge">W</span>
+                            <span class="key-badge">A</span>
+                            <span class="key-badge">S</span>
+                            <span class="key-badge">D</span>
+                            <span style="font-size: 11px; color: var(--text-muted);">Gerak Avatar</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 6px;">
+                            <span class="key-badge">Spasi</span>
+                            <span style="font-size: 11px; color: var(--text-muted);">Lompat</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 6px;">
+                            <span class="key-badge">Shift</span>
+                            <span style="font-size: 11px; color: var(--text-muted);">Lari Cepat</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 6px;">
+                            <span class="key-badge">Klik + Geser Mouse</span>
+                            <span style="font-size: 11px; color: var(--text-muted);">Putar Kamera 360°</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel Manajemen Kavling Pulau Pribadi -->
+                <div class="island-plots-panel">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <h3 style="font-family: var(--font-heading); font-size: 18px;">Manajemen Kavling Pulau</h3>
+                        <span id="island-stat-rev" style="color: var(--primary-emerald); font-family: var(--font-mono); font-weight: 700;">+$0/s</span>
+                    </div>
+                    <p style="font-size: 12px; color: var(--text-muted);">
+                        Jelajahi pulau pribadi Anda dengan avatar dan bangun fasilitas bisnis penghasil arus kas pasif.
+                    </p>
+
+                    <div id="island-plots-container" style="display: flex; flex-direction: column; gap: 10px;">
+                        <!-- Dibuat otomatis oleh island3d.js -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PANEL 3: BURSA EFEK APEX (Pasar Saham Virtual) -->
+        <section id="view-market" class="tab-view-panel">
+            <div class="market-container">
+                <!-- Sisi Kiri: Daftar Saham -->
+                <div class="market-sidebar">
+                    <div class="panel-title">
+                        <span>Aset Saham Bursa</span>
+                        <span class="live-dot"></span>
+                    </div>
+                    <div id="market-stocks-list" class="market-stocks-list"></div>
+                </div>
+
+                <!-- Sisi Tengah: Grafik Interaktif & Warta Pasar -->
+                <div class="market-chart-panel">
+                    <div class="chart-header">
+                        <div class="chart-symbol-info">
+                            <span id="selected-stock-symbol" style="font-family: var(--font-heading); font-size: 24px; font-weight: 800;">NRTX</span>
+                            <span id="selected-stock-name" style="color: var(--text-muted); font-size: 13px;">NeuroTech Bio-AI</span>
+                        </div>
+                        <div style="display: flex; align-items: baseline; gap: 10px;">
+                            <span id="selected-stock-price" class="chart-current-price">$142.50</span>
+                            <span id="selected-stock-change" class="stat-badge green">+3.2%</span>
+                        </div>
+                    </div>
+
+                    <div class="chart-wrapper">
+                        <canvas id="stock-price-chart"></canvas>
+                    </div>
+
+                    <div id="market-news-ticker" class="market-news-ticker">
+                        <span class="news-tag">WARTA TERKINI</span> Pasar bursa digital mengalami reli likuiditas menyusul peluncuran protokol kuantum baru.
+                    </div>
+                </div>
+
+                <!-- Sisi Kanan: Konsol Transaksi & Portofolio -->
+                <div class="market-trade-panel">
+                    <div class="panel-title">
+                        <span>Konsol Transaksi Saham</span>
+                    </div>
+
+                    <div class="order-box">
+                        <div class="order-row">
+                            <span style="color: var(--text-muted);">Saham Dimiliki:</span>
+                            <strong id="portfolio-shares-owned" style="font-family: var(--font-mono);">0 lembar</strong>
+                        </div>
+                        <div class="order-row">
+                            <span style="color: var(--text-muted);">Harga Beli Rata-Rata:</span>
+                            <strong id="portfolio-avg-price" style="font-family: var(--font-mono);">$0.00</strong>
+                        </div>
+                        <div class="order-row">
+                            <span style="color: var(--text-muted);">Keuntungan / Kerugian:</span>
+                            <span id="portfolio-pnl" class="pnl-green">$0.00 (0%)</span>
+                        </div>
+                    </div>
+
+                    <!-- Tombol Beli Saham -->
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <span style="font-size: 11px; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Beli Saham</span>
+                        <div class="order-preset-btns">
+                            <button class="btn btn-sm btn-emerald" onclick="window.bizMarket.buyStock(window.bizMarket.selectedSymbol, 1)">+1</button>
+                            <button class="btn btn-sm btn-emerald" onclick="window.bizMarket.buyStock(window.bizMarket.selectedSymbol, 10)">+10</button>
+                            <button class="btn btn-sm btn-emerald" onclick="window.bizMarket.buyStock(window.bizMarket.selectedSymbol, 50)">+50</button>
+                            <button class="btn btn-sm btn-emerald" onclick="window.bizMarket.buyStock(window.bizMarket.selectedSymbol, 'max')">Maksimal</button>
+                        </div>
+                    </div>
+
+                    <!-- Tombol Jual Saham -->
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <span style="font-size: 11px; text-transform: uppercase; color: var(--text-muted); font-weight: 700;">Jual Saham</span>
+                        <div class="order-preset-btns">
+                            <button class="btn btn-sm btn-secondary" onclick="window.bizMarket.sellStock(window.bizMarket.selectedSymbol, 1)">-1</button>
+                            <button class="btn btn-sm btn-secondary" onclick="window.bizMarket.sellStock(window.bizMarket.selectedSymbol, 10)">-10</button>
+                            <button class="btn btn-sm btn-secondary" onclick="window.bizMarket.sellStock(window.bizMarket.selectedSymbol, 50)">-50</button>
+                            <button class="btn btn-sm btn-secondary" onclick="window.bizMarket.sellStock(window.bizMarket.selectedSymbol, 'all')">Semua</button>
+                        </div>
+                    </div>
+
+                    <div class="order-box" style="margin-top: auto;">
+                        <div class="order-row">
+                            <span>Total Nilai Ekuitas:</span>
+                            <strong id="portfolio-total-equity" style="color: var(--primary-cyan); font-family: var(--font-mono); font-size: 15px;">$0</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PANEL 4: OBROLAN & JARINGAN SOSIAL (Multiplayer) -->
+        <section id="view-social" class="tab-view-panel">
+            <div class="social-container">
+                <!-- Ruang Obrolan Utama -->
+                <div class="chat-panel">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                        <h3 style="font-family: var(--font-heading); font-size: 18px;">Obrolan Global Metaverse</h3>
+                        <span style="font-size: 12px; color: var(--text-muted);">Gunakan perintah emotikon: <code>/wave</code>, <code>/dance</code>, <code>/flex</code></span>
+                    </div>
+
+                    <div id="global-chat-messages" class="chat-messages-container">
+                        <!-- Dibuat otomatis oleh social.js -->
+                    </div>
+
+                    <form id="form-global-chat" class="chat-input-bar">
+                        <input id="input-chat-message" type="text" class="chat-input" placeholder="Tulis pesan ke semua pemain... (atau ketik /dance)" autocomplete="off">
+                        <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+                    </form>
+                </div>
+
+                <!-- Daftar Pemain Aktif Online -->
+                <div class="chat-panel">
+                    <h3 style="font-family: var(--font-heading); font-size: 18px; margin-bottom: 12px;">Para CEO Aktif di Metaverse</h3>
+                    <div id="online-players-list" style="overflow-y: auto; flex: 1;">
+                        <!-- Dibuat otomatis oleh social.js -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PANEL 5: PASAR PEMAIN (Bursa Aset P2P) -->
+        <section id="view-p2p" class="tab-view-panel">
+            <div class="marketplace-container">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <h3 style="font-family: var(--font-heading); font-size: 22px;">Pasar Antar-Pemain (Bursa Aset P2P)</h3>
+                        <p style="font-size: 13px; color: var(--text-muted);">Beli dan jual kavling tanah, algoritma kuantum, dan perangkat komputasi langka.</p>
+                    </div>
+                    <button class="btn btn-emerald" onclick="document.getElementById('list-item-modal').classList.add('active')">
+                        + Pasang Iklan Aset
+                    </button>
+                </div>
+
+                <div id="marketplace-items-grid" class="marketplace-items-grid">
+                    <!-- Dibuat otomatis oleh p2pmarket.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- PANEL 6: KANTOR VIRTUAL (Simulasi Staf & Fasilitas 2.5D) -->
+        <section id="view-office" class="tab-view-panel">
+            <div class="office-container">
+                <!-- Kanvas Animasi Lantai Kerja 2.5D -->
+                <div class="office-canvas-wrapper">
+                    <canvas id="office-canvas"></canvas>
+                </div>
+
+                <!-- Manajemen Divisi & Fasilitas Kantor -->
+                <div class="office-management-grid">
+                    <div>
+                        <h3 style="font-family: var(--font-heading); font-size: 18px; margin-bottom: 12px;">Rekrutmen Divisi & Spesialis</h3>
+                        <div id="office-roles-list" class="office-roles-list"></div>
+                    </div>
+
+                    <div>
+                        <h3 style="font-family: var(--font-heading); font-size: 18px; margin-bottom: 12px;">Fasilitas Kantor & Peningkatan Moral</h3>
+                        <div id="office-perks-list" class="office-perks-list"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PANEL 7: DEWAN DIREKSI & KONTRAK B2B (C-Suite) -->
+        <section id="view-boardroom" class="tab-view-panel">
+            <div class="boardroom-container">
+                <div>
+                    <h3 style="font-family: var(--font-heading); font-size: 20px; margin-bottom: 6px;">Dewan Direksi & Penasihat AI (C-Suite)</h3>
+                    <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 14px;">Konsultasikan strategi korporat dengan jajaran direktur eksekutif untuk mempercepat pertumbuhan bisnis.</p>
+                    <div id="advisors-grid" class="advisors-grid"></div>
+                </div>
+
+                <div style="margin-top: 10px;">
+                    <h3 style="font-family: var(--font-heading); font-size: 20px; margin-bottom: 6px;">Kontrak Proyek B2B Tingkat Tinggi</h3>
+                    <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 14px;">Penuhi syarat valuasi dan tenaga kerja untuk menandatangani kontrak bernilai ratusan ribu hingga jutaan dollar.</p>
+                    <div id="contracts-list" class="contracts-list"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PANEL 8: LAPORAN KEUANGAN & PAPAN PERINGKAT GLOBAL -->
+        <section id="view-ledger" class="tab-view-panel">
+            <div class="ledger-container">
+                <!-- Neraca Keuangan Korporat -->
+                <div class="statement-card">
+                    <h3 style="font-family: var(--font-heading); font-size: 18px;">Laporan Neraca Kas & Aset</h3>
+                    <div class="statement-row">
+                        <span>Kas Tunai di Bank:</span>
+                        <span id="ledger-cash" style="color: var(--primary-emerald);">$15,000</span>
+                    </div>
+                    <div class="statement-row">
+                        <span>Portofolio Saham & Aset Digital:</span>
+                        <span id="ledger-portfolio">$0</span>
+                    </div>
+                    <div class="statement-row">
+                        <span>Nilai Properti Gedung & Pulau:</span>
+                        <span id="ledger-buildings">$20,000</span>
+                    </div>
+                    <div class="statement-row">
+                        <span>Hak Paten & Hak Cipta Intelektual:</span>
+                        <span id="ledger-ip">$0</span>
+                    </div>
+                    <div class="statement-row total">
+                        <span>TOTAL VALUASI PERUSAHAAN:</span>
+                        <span id="ledger-total-val">$35,000</span>
+                    </div>
+
+                    <div style="margin-top: 20px;">
+                        <h4 style="font-size: 14px; margin-bottom: 10px;">Pengaturan Data Bisnis</h4>
+                        <button class="btn btn-sm btn-secondary" onclick="
+                            if (confirm('Apakah Anda yakin ingin mereset seluruh progres dan memulai dari awal?')) {
+                                window.bizEngine.resetGame();
+                            }
+                        ">
+                            ⚠️ Reset Empire ke Awal
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tonggak Prestasi & Sejarah -->
+                <div class="statement-card">
+                    <h3 style="font-family: var(--font-heading); font-size: 18px;">Tonggak Prestasi Perusahaan</h3>
+                    <div id="milestones-list" style="display: flex; flex-direction: column; gap: 10px;">
+                        <!-- Dibuat otomatis oleh JS -->
+                    </div>
+                </div>
+
+                <!-- Papan Peringkat Konglomerat Dunia (Tahap 4: Bersaing) -->
+                <div class="statement-card" style="grid-column: 1 / -1;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                        <div>
+                            <h3 style="font-family: var(--font-heading); font-size: 20px;">🏆 Papan Peringkat Konglomerat Dunia (Global Leaderboard)</h3>
+                            <span style="font-size: 12px; color: var(--text-muted);">Tahap 4: Bersaing merebut dominasi pasar metaverse melawan korporasi global lain.</span>
+                        </div>
+                        <button class="btn btn-sm btn-roadmap" onclick="window.bizStages.openStagesModal()">
+                            🗺️ Buka Peta 4 Tahap
+                        </button>
+                    </div>
+
+                    <div style="overflow-x: auto; margin-top: 10px;">
+                        <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                            <thead>
+                                <tr style="border-bottom: 1px solid var(--border-subtle); font-size: 11px; color: var(--text-muted); text-transform: uppercase;">
+                                    <th style="padding: 10px 12px;">Peringkat</th>
+                                    <th style="padding: 10px 12px;">Konglomerat & CEO</th>
+                                    <th style="padding: 10px 12px;">Valuasi Perusahaan</th>
+                                    <th style="padding: 10px 12px;">Kategori Bisnis</th>
+                                    <th style="padding: 10px 12px;">Aksi Persaingan Pasar</th>
+                                </tr>
+                            </thead>
+                            <tbody id="global-leaderboard-tbody">
+                                <!-- Dibuat otomatis oleh stages.js -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- DRAWER INSPEKSI GEDUNG SEKTOR KANAN -->
+    <aside id="building-inspector-drawer" class="inspector-drawer">
+        <div class="drawer-header">
+            <div class="drawer-title-group">
+                <h3 id="inspector-building-name">Markas Besar Nexus</h3>
+                <span id="inspector-building-tag">Pusat Komando Korporat</span>
+            </div>
+            <button class="btn btn-icon" onclick="window.bizApp.closeBuildingInspector()">✕</button>
+        </div>
+
+        <p id="inspector-building-desc" style="color: var(--text-muted); font-size: 13px; line-height: 1.6;">
+            Pusat komando kekaisaran bisnis virtual Anda.
+        </p>
+
+        <div class="inspector-stats-grid">
+            <div class="stat-box">
+                <div class="stat-box-label">Tingkat</div>
+                <div id="inspector-level" class="stat-box-val" style="color: var(--primary-cyan);">Lvl 1</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-box-label">Pendapatan Saat Ini</div>
+                <div id="inspector-current-rev" class="stat-box-val" style="color: var(--primary-emerald);">+$25/s</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-box-label">Setelah Upgrade</div>
+                <div id="inspector-next-rev" class="stat-box-val">+$50/s</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-box-label">Biaya Upgrade</div>
+                <div id="inspector-cost" class="stat-box-val" style="color: var(--accent-amber);">$2,000</div>
+            </div>
+        </div>
+
+        <button id="btn-inspector-upgrade" class="btn btn-lg btn-primary" onclick="window.bizApp.upgradeActiveBuilding()">
+            <span>Tingkatkan Sektor Ini</span>
+        </button>
+    </aside>
+
+    <!-- MODAL PETA ALUR 4 TAHAP KARIR CEO -->
+    <div id="stages-roadmap-modal" class="modal-overlay">
+        <div class="modal-dialog" style="max-width: 820px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-subtle); padding-bottom: 12px;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <span style="font-size: 26px;">🗺️</span>
+                    <div>
+                        <h3 style="font-family: var(--font-heading); font-size: 20px;">Alur Perjalanan Karir CEO (4 Tahap Bisnis)</h3>
+                        <span style="font-size: 11px; color: var(--primary-cyan); font-weight: 700;">1. GABUNG ➔ 2. MENDIRIKAN BISNIS ➔ 3. MEMBUKA JARINGAN ➔ 4. BERSAING</span>
+                    </div>
+                </div>
+                <button class="btn btn-icon" onclick="window.bizStages.closeStagesModal()">✕</button>
+            </div>
+
+            <!-- Kartu 4 Tahap Karir -->
+            <div id="stages-cards-grid" class="stages-cards-grid">
+                <!-- Dibuat otomatis oleh stages.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL PROFIL & KUSTOMISASI AVATAR ROBLOX -->
+    <div id="profile-modal" class="modal-overlay">
+        <div class="modal-dialog" style="max-width: 560px;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h3 style="font-family: var(--font-heading); font-size: 20px;">Akun & Kustomisasi Avatar Roblox 3D</h3>
+                <button class="btn btn-icon" onclick="document.getElementById('profile-modal').classList.remove('active')">✕</button>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+                <div>
+                    <label style="font-size: 11px; color: var(--text-muted);">Nama Pengguna:</label>
+                    <input id="input-profile-name" type="text" class="text-input" style="width: 100%;">
+                </div>
+                <div>
+                    <label style="font-size: 11px; color: var(--text-muted);">Gelar / Pangkat Korporat:</label>
+                    <input id="input-profile-title" type="text" class="text-input" style="width: 100%;">
+                </div>
+            </div>
+
+            <div>
+                <label style="font-size: 11px; color: var(--text-muted);">Bio Korporat:</label>
+                <input id="input-profile-bio" type="text" class="text-input" style="width: 100%;">
+            </div>
+
+            <div style="border-top: 1px solid var(--border-subtle); padding-top: 14px;">
+                <h4 style="font-size: 14px; margin-bottom: 10px;">Warna & Aksesori Avatar Roblox 3D</h4>
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
+                    <div>
+                        <label style="font-size: 10px; color: var(--text-muted);">Warna Kulit:</label>
+                        <input id="input-avatar-skin" type="color" style="width: 100%; height: 36px; border: none; border-radius: 6px; cursor: pointer; background: transparent;">
+                    </div>
+                    <div>
+                        <label style="font-size: 10px; color: var(--text-muted);">Warna Baju/Jas:</label>
+                        <input id="input-avatar-torso" type="color" style="width: 100%; height: 36px; border: none; border-radius: 6px; cursor: pointer; background: transparent;">
+                    </div>
+                    <div>
+                        <label style="font-size: 10px; color: var(--text-muted);">Warna Celana:</label>
+                        <input id="input-avatar-legs" type="color" style="width: 100%; height: 36px; border: none; border-radius: 6px; cursor: pointer; background: transparent;">
+                    </div>
+                    <div>
+                        <label style="font-size: 10px; color: var(--text-muted);">Topi / Mahkota:</label>
+                        <select id="input-avatar-hat" class="select-input" style="width: 100%; height: 36px;">
+                            <option value="cap">Topi Cap</option>
+                            <option value="crown">Mahkota Emas</option>
+                            <option value="none">Tanpa Topi</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-primary" onclick="
+                window.bizAuth.updateProfile({
+                    username: document.getElementById('input-profile-name').value,
+                    title: document.getElementById('input-profile-title').value,
+                    bio: document.getElementById('input-profile-bio').value,
+                    skinColor: document.getElementById('input-avatar-skin').value,
+                    torsoColor: document.getElementById('input-avatar-torso').value,
+                    legsColor: document.getElementById('input-avatar-legs').value,
+                    hatType: document.getElementById('input-avatar-hat').value
+                });
+                document.getElementById('profile-modal').classList.remove('active');
+            ">
+                Simpan & Terapkan Avatar
+            </button>
+        </div>
+    </div>
+
+    <!-- MODAL KONSOL ADMIN & MODERASI -->
+    <div id="admin-modal" class="modal-overlay">
+        <div class="modal-dialog" style="max-width: 780px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-subtle); padding-bottom: 10px;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="font-size: 22px;">🛡️</span>
+                    <div>
+                        <h3 style="font-family: var(--font-heading); font-size: 18px;">Konsol Kontrol Admin & Moderasi Server</h3>
+                        <span style="font-size: 11px; color: #ef4444; font-weight: 700;">HAK AKSES ADMINISTRATOR TERTINGGI (GOD MODE)</span>
+                    </div>
+                </div>
+                <button class="btn btn-icon" onclick="window.bizAdmin.toggleAdminModal()">✕</button>
+            </div>
+
+            <!-- Intervensi Likuiditas Ekonomi -->
+            <div>
+                <h4 style="font-size: 13px; text-transform: uppercase; color: var(--primary-cyan); margin-bottom: 8px;">1. Intervensi Likuiditas Ekonomi</h4>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                    <button class="btn btn-sm btn-emerald" onclick="window.bizAdmin.injectCash(100000)">+ $100,000 Kas</button>
+                    <button class="btn btn-sm btn-emerald" onclick="window.bizAdmin.injectCash(1000000)">+ $1,000,000 Kas</button>
+                    <button class="btn btn-sm btn-boost" onclick="window.bizAdmin.setMultiplier(5)">Aktifkan 5x Multiplier</button>
+                    <button class="btn btn-sm btn-primary" onclick="window.bizAdmin.triggerMarketRally()">Picu Bull Run Pasar (+25%)</button>
+                    <button class="btn btn-sm btn-secondary" style="color: #ef4444;" onclick="window.bizAdmin.triggerMarketCrash()">Picu Market Crash (-20%)</button>
+                </div>
+            </div>
+
+            <!-- Siaran Pengumuman Darurat Server -->
+            <div style="border-top: 1px solid var(--border-subtle); padding-top: 12px;">
+                <h4 style="font-size: 13px; text-transform: uppercase; color: var(--accent-amber); margin-bottom: 8px;">2. Siaran Pengumuman Darurat Server</h4>
+                <div style="display: flex; gap: 8px;">
+                    <input id="input-admin-broadcast" type="text" class="text-input" placeholder="Tulis pengumuman resmi server..." style="flex: 1;">
+                    <button class="btn btn-sm btn-boost" onclick="
+                        const val = document.getElementById('input-admin-broadcast').value;
+                        window.bizAdmin.broadcastMessage(val);
+                        document.getElementById('input-admin-broadcast').value = '';
+                    ">Publikasikan Siaran</button>
+                </div>
+            </div>
+
+            <!-- Tabel Daftar & Penindakan Pemain Aktif -->
+            <div style="border-top: 1px solid var(--border-subtle); padding-top: 12px;">
+                <h4 style="font-size: 13px; text-transform: uppercase; color: var(--primary-emerald); margin-bottom: 8px;">3. Daftar & Penindakan Pemain Aktif</h4>
+                <div style="max-height: 180px; overflow-y: auto;">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="text-align: left; font-size: 11px; color: var(--text-muted); border-bottom: 1px solid var(--border-subtle);">
+                                <th style="padding: 6px;">Pemain</th>
+                                <th style="padding: 6px;">Gelar</th>
+                                <th style="padding: 6px;">Kekayaan</th>
+                                <th style="padding: 6px;">Status</th>
+                                <th style="padding: 6px;">Tindakan Disiplin</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-players-table">
+                            <!-- Dibuat otomatis oleh admin.js -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL PASANG IKLAN PENJUALAN ASET P2P -->
+    <div id="list-item-modal" class="modal-overlay">
+        <div class="modal-dialog">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h3 style="font-family: var(--font-heading); font-size: 18px;">Pasang Iklan Penjualan Aset</h3>
+                <button class="btn btn-icon" onclick="document.getElementById('list-item-modal').classList.remove('active')">✕</button>
+            </div>
+            <div>
+                <label style="font-size: 11px; color: var(--text-muted);">Nama Aset / Hak Bisnis:</label>
+                <input id="input-p2p-name" type="text" class="text-input" style="width: 100%;" placeholder="Contoh: Lisensi Server Awan v2">
+            </div>
+            <div>
+                <label style="font-size: 11px; color: var(--text-muted);">Kategori:</label>
+                <select id="input-p2p-cat" class="select-input" style="width: 100%;">
+                    <option value="Real Estat">Real Estat / Kavling</option>
+                    <option value="Algoritma">Algoritma & Finansial</option>
+                    <option value="Hardware">Hardware & Komputasi</option>
+                    <option value="Logistik">Logistik & Transportasi</option>
+                    <option value="Kosmetik">Kosmetik Avatar</option>
+                </select>
+            </div>
+            <div>
+                <label style="font-size: 11px; color: var(--text-muted);">Harga Jual ($):</label>
+                <input id="input-p2p-price" type="number" class="text-input" style="width: 100%;" placeholder="50000">
+            </div>
+            <div>
+                <label style="font-size: 11px; color: var(--text-muted);">Deskripsi Aset:</label>
+                <input id="input-p2p-desc" type="text" class="text-input" style="width: 100%;" placeholder="Spesifikasi keuntungan bagi pembeli...">
+            </div>
+            <button class="btn btn-primary" onclick="
+                const n = document.getElementById('input-p2p-name').value;
+                const c = document.getElementById('input-p2p-cat').value;
+                const p = document.getElementById('input-p2p-price').value;
+                const d = document.getElementById('input-p2p-desc').value;
+                if (window.bizP2PMarket.createListing(n, p, c, d)) {
+                    document.getElementById('list-item-modal').classList.remove('active');
+                }
+            ">
+                Pasang di Pasar Pemain
+            </button>
+        </div>
+    </div>
+
+    <!-- MODAL KRISIS DILEMA STRATEGIS KORPORAT -->
+    <div id="dilemma-modal" class="modal-overlay">
+        <div class="modal-dialog">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <span style="font-size: 26px;">⚠️</span>
+                <div>
+                    <span style="font-size: 11px; color: var(--accent-crimson); font-weight: 700; text-transform: uppercase;">Krisis Strategis Perusahaan</span>
+                    <h3 id="dilemma-title" style="font-family: var(--font-heading); font-size: 18px;">Penawaran Hostile Takeover</h3>
+                </div>
+            </div>
+            <p id="dilemma-desc" style="color: var(--text-muted); font-size: 13px; line-height: 1.6;">
+                Sebuah konglomerat saingan sedang mencoba membeli paksa saham minoritas Anda di pasar terbuka.
+            </p>
+            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
+                <button id="dilemma-choice-a" class="btn btn-secondary" style="text-align: left; justify-content: flex-start; padding: 12px 16px;" onclick="window.bizBoardroom.resolveDilemma('A')">
+                    Pilihan A
+                </button>
+                <button id="dilemma-choice-b" class="btn btn-secondary" style="text-align: left; justify-content: flex-start; padding: 12px 16px;" onclick="window.bizBoardroom.resolveDilemma('B')">
+                    Pilihan B
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL PENDAPATAN OFFLINE -->
+    <div id="offline-modal" class="modal-overlay">
+        <div class="modal-dialog" style="text-align: center; align-items: center;">
+            <div style="font-size: 40px; margin-bottom: -10px;">💼</div>
+            <h3 style="font-family: var(--font-heading); font-size: 20px;">Selamat Datang Kembali, CEO!</h3>
+            <p style="color: var(--text-muted); font-size: 13px;">
+                Bisnis virtual Anda terus beroperasi saat Anda tidak aktif selama <strong id="offline-time" style="color: #fff;">15 menit</strong>:
+            </p>
+            <div id="offline-amount" style="font-family: var(--font-mono); font-size: 32px; font-weight: 800; color: var(--primary-emerald); text-shadow: 0 0 15px rgba(0, 245, 160, 0.4);">
+                +$45,200
+            </div>
+            <button class="btn btn-lg btn-emerald" onclick="window.bizApp.closeOfflineModal()" style="width: 100%;">
+                Klaim Pendapatan
+            </button>
+        </div>
+    </div>
+
+    <!-- MODAL PANDUAN & INFORMASI METAVERSE -->
+    <div id="about-modal" class="modal-overlay">
+        <div class="modal-dialog">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h3 style="font-family: var(--font-heading); font-size: 20px;">Tentang BIZVERSE Metaverse</h3>
+                <button class="btn btn-icon" onclick="document.getElementById('about-modal').classList.remove('active')">✕</button>
+            </div>
+            <img src="assets/hero.jpg" alt="Metropolis BizVerse" style="width: 100%; border-radius: 8px; border: 1px solid var(--border-subtle); max-height: 180px; object-fit: cover;">
+            <p style="color: var(--text-muted); font-size: 13px; line-height: 1.6;">
+                <strong>BIZVERSE</strong> menggabungkan simulasi bisnis korporat profesional dengan dunia metaverse 3D bergaya Roblox:
+            </p>
+            <ul style="color: var(--text-muted); font-size: 13px; margin-left: 20px; line-height: 1.8;">
+                <li>🏝️ <strong>Pulau Pribadi 3D:</strong> Kendalikan avatar Roblox dengan tombol W, A, S, D, lompat, lari, dan bangun properti pulau.</li>
+                <li>📈 <strong>Bursa Saham Apex:</strong> Perdagangan 5 aset saham virtual dengan grafik harga real-time.</li>
+                <li>🌐 <strong>Multiplayer Sosial:</strong> Obrolan global langsung, balon percakapan komik 3D di atas avatar, dan perintah emotikon.</li>
+                <li>🛒 <strong>Pasar Pemain P2P:</strong> Jual beli kavling tanah, server, dan lisensi bisnis antarpemain.</li>
+                <li>🛡️ <strong>Admin & Moderasi:</strong> Konsol pengawasan server, mode intervensi dana, dan siaran darurat.</li>
+            </ul>
+            <button class="btn btn-primary" onclick="document.getElementById('about-modal').classList.remove('active')" style="align-self: flex-end;">
+                Mulai Berbisnis
+            </button>
+        </div>
+    </div>
+
+    <!-- WADAH NOTIFIKASI TOAST -->
+    <div id="toast-container"></div>
+
+    <!-- SKRIP VENDOR -->
+    <script src="vendor/three.min.js"></script>
+    <script src="vendor/OrbitControls.js"></script>
+    <script src="vendor/chart.min.js"></script>
+    <script src="vendor/confetti.min.js"></script>
+
+    <!-- SKRIP INTI SISTEM -->
+    <script src="js/audio.js"></script>
+    <script src="js/engine.js"></script>
+    <script src="js/city3d.js"></script>
+    <script src="js/avatar3d.js"></script>
+    <script src="js/island3d.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/social.js"></script>
+    <script src="js/p2pmarket.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="js/stages.js"></script>
+    <script src="js/market.js"></script>
+    <script src="js/office.js"></script>
+    <script src="js/boardroom.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+</html>
