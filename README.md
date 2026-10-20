@@ -93,7 +93,7 @@ bizzyverse/
 ├── vendor/                  # Pustaka pendukung lokal (Three.js, Chart.js, dll.)
 ├── index.html               # Halaman utama aplikasi web
 ├── package.json             # Konfigurasi npm & dependensi JavaScript
-├── server.js                # Server Node.js untuk melayani aplikasi & REST API
+├── local-server.js          # Server Node.js lokal untuk pengujian di komputer
 ├── .gitignore               # Berkas yang diabaikan oleh Git
 └── README.md                # Dokumentasi lengkap proyek
 ```

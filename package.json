@@ -2,10 +2,9 @@
   "name": "bizzyverse",
   "version": "1.0.0",
   "description": "BIZVERSE - Dunia Bisnis Virtual 3D & Metaverse Korporat berbasis JavaScript Framework",
-  "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js"
+    "start": "node local-server.js",
+    "dev": "node local-server.js"
   },
   "keywords": [
     "metaverse",
