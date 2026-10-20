@@ -4,7 +4,6 @@
   "description": "BIZVERSE - Dunia Bisnis Virtual 3D & Metaverse Korporat berbasis JavaScript Framework",
   "main": "server.js",
   "scripts": {
-    "build": "node -e \"console.log('BIZVERSE build verified for deployment')\"",
     "start": "node server.js",
     "dev": "node server.js"
   },
