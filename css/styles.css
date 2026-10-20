@@ -318,19 +318,21 @@ body::before {
 
 /* ==========================================================================
    COLLAPSIBLE LEFT SIDEBAR & PROFESSIONAL DRAWER
-   Default: Closed (left: -340px)
+   Default: Closed (left: -400px), Width: 360px
+   Hosts all grouped UI widgets, metrics, and navigation
    ========================================================================== */
 #left-app-sidebar {
     position: fixed;
     top: 0;
-    left: -340px;
-    width: 320px;
+    left: -420px;
+    width: 360px;
+    max-width: 92vw;
     height: 100vh;
-    background: rgba(8, 12, 23, 0.96);
-    backdrop-filter: blur(20px);
+    background: rgba(8, 12, 23, 0.98);
+    backdrop-filter: blur(25px);
     border-right: 1px solid var(--border-glow);
     z-index: 1000;
-    box-shadow: 10px 0 45px rgba(0, 0, 0, 0.85);
+    box-shadow: 15px 0 50px rgba(0, 0, 0, 0.9);
     display: flex;
     flex-direction: column;
     transition: left 0.35s cubic-bezier(0.16, 1, 0.3, 1);
@@ -360,7 +362,7 @@ body::before {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 18px 20px;
+    padding: 16px 20px;
     border-bottom: 1px solid var(--border-subtle);
     background: rgba(15, 23, 42, 0.6);
 }
@@ -371,7 +373,7 @@ body::before {
     padding: 16px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 18px;
 }
 
 .sidebar-nav-group {
@@ -386,14 +388,137 @@ body::before {
     font-weight: 800;
     letter-spacing: 0.8px;
     color: var(--text-muted);
-    padding: 4px 10px;
+    padding: 4px 6px;
     display: flex;
     align-items: center;
     gap: 6px;
 }
+.sidebar-group-title.executive { color: #f59e0b; }
 .sidebar-group-title.business { color: var(--primary-cyan); }
 .sidebar-group-title.finance { color: var(--primary-emerald); }
 .sidebar-group-title.system { color: var(--accent-purple); }
+
+/* Sidebar Profile Card */
+.sidebar-profile-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    padding: 12px 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+.profile-avatar-thumb {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(0, 210, 255, 0.2), rgba(157, 78, 221, 0.25));
+    border: 1px solid var(--border-glow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 12px rgba(0, 210, 255, 0.2);
+}
+.tier-pill-badge {
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background: rgba(0, 210, 255, 0.15);
+    color: var(--primary-cyan);
+    border: 1px solid rgba(0, 210, 255, 0.3);
+}
+
+/* Sidebar Action Buttons */
+.sidebar-actions-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 4px;
+}
+.sidebar-action-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 10px 14px;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 8px;
+}
+.sidebar-utility-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 2px;
+}
+
+/* Sidebar Financial KPI Grid */
+.sidebar-kpi-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+.sidebar-kpi-card {
+    background: rgba(15, 23, 42, 0.75);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    transition: var(--transition-smooth);
+}
+.sidebar-kpi-card:hover {
+    border-color: rgba(0, 210, 255, 0.35);
+    transform: translateY(-1px);
+}
+
+/* Separated Minimal Topbar Controls */
+.top-controls-minimal {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.topbar-status-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    color: var(--primary-cyan);
+    background: rgba(0, 210, 255, 0.08);
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 210, 255, 0.25);
+}
+@media (max-width: 768px) {
+    .topbar-status-badge {
+        display: none;
+    }
+}
+
+.btn-primary-cyber {
+    background: linear-gradient(135deg, rgba(0, 210, 255, 0.18), rgba(0, 245, 160, 0.18));
+    border: 1px solid var(--primary-cyan);
+    color: #ffffff;
+    padding: 7px 14px;
+    border-radius: 8px;
+    box-shadow: 0 0 14px rgba(0, 210, 255, 0.25);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+.btn-primary-cyber:hover {
+    background: linear-gradient(135deg, rgba(0, 210, 255, 0.32), rgba(0, 245, 160, 0.32));
+    box-shadow: 0 0 22px rgba(0, 210, 255, 0.45);
+    transform: translateY(-1px);
+}
 
 .sidebar-nav-item {
     display: flex;

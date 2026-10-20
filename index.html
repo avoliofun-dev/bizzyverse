@@ -16,14 +16,15 @@
     <!-- LATAR GELAP PENUTUP SIDEBAR (BACKDROP) -->
     <div id="sidebar-backdrop" onclick="window.bizApp.closeSidebar()"></div>
 
-    <!-- SIDEBAR KIRI TERTUTUP SECARA DEFAULT -->
+    <!-- SIDEBAR KIRI TERTUTUP SECARA DEFAULT (PUSAT KONTROL UTAMA UI) -->
     <aside id="left-app-sidebar">
+        <!-- Header Sidebar -->
         <div class="sidebar-header">
             <div style="display: flex; align-items: center; gap: 10px;">
                 <div class="brand-logo-cube">B</div>
                 <div>
                     <h3 style="font-family: var(--font-heading); font-size: 16px; font-weight: 800;">BIZVERSE</h3>
-                    <span style="font-size: 10px; color: var(--primary-cyan); font-weight: 700;">MENU KELOMPOK KERJA</span>
+                    <span style="font-size: 10px; color: var(--primary-cyan); font-weight: 700; letter-spacing: 0.5px;">PUSAT KONTROL & UI</span>
                 </div>
             </div>
             <button class="btn btn-icon" onclick="window.bizApp.closeSidebar()" title="Tutup Menu">✕</button>
@@ -31,7 +32,86 @@
 
         <div class="sidebar-scroll-content">
 
-            <!-- KELOMPOK 1: BISNIS & METAVERSE -->
+            <!-- KELOMPOK 1: 👤 AKUN, PROFIL & TINDAKAN EKSEKUTIF -->
+            <div class="sidebar-nav-group">
+                <span class="sidebar-group-title executive">👤 Akun & Tindakan Eksekutif</span>
+
+                <!-- Kartu Ringkasan Profil Eksekutif -->
+                <div class="sidebar-profile-card">
+                    <div class="profile-avatar-thumb">
+                        <span style="font-size: 24px;">👔</span>
+                    </div>
+                    <div style="flex: 1; overflow: hidden;">
+                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <span id="profile-display-name" style="font-weight: 800; font-size: 14px; color: #fff; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;">Alex Mercer</span>
+                            <span id="stat-tier" class="tier-pill-badge">Startup</span>
+                        </div>
+                        <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Chief Executive Officer</div>
+                    </div>
+                </div>
+
+                <!-- Tombol Tindakan Finansial Cepat -->
+                <div class="sidebar-actions-stack">
+                    <!-- Tombol Pitch Investor Aktif -->
+                    <button id="btn-pitch" class="btn btn-emerald sidebar-action-btn" onclick="window.bizEngine.venturePitchClick()">
+                        <span>🚀 Pitch Investor (+$$)</span>
+                    </button>
+
+                    <!-- Tombol Pengali Pendapatan Viral Blitz -->
+                    <button id="btn-viral-boost" class="btn btn-boost sidebar-action-btn" onclick="window.bizEngine.activateBoost()">
+                        <span>⚡ Viral Blitz</span>
+                    </button>
+                </div>
+
+                <!-- Baris Utilitas Eksekutif -->
+                <div class="sidebar-utility-row">
+                    <!-- Peta Alur 4 Tahap Karir -->
+                    <button class="btn btn-roadmap btn-sm" style="flex: 1;" onclick="window.bizStages.openStagesModal(); window.bizApp.closeSidebar();">
+                        <span>🗺️</span>
+                        <span id="roadmap-stage-pill">Tahap 1/4: Gabung</span>
+                    </button>
+
+                    <!-- Tombol Suara & Musik Ambient -->
+                    <button id="btn-sound-toggle" class="btn btn-icon" onclick="
+                        const muted = window.bizAudio.toggleMute();
+                        this.textContent = muted ? '🔇' : '🔊';
+                        if (!muted) window.bizAudio.startAmbient();
+                    " title="Aktifkan/Nonaktifkan Suara & Musik Ambient">
+                        🔊
+                    </button>
+                </div>
+            </div>
+
+            <!-- KELOMPOK 2: 💵 TELEMETRI FINANSIAL & KAS REAL-TIME -->
+            <div class="sidebar-nav-group">
+                <span class="sidebar-group-title finance">💰 Telemetri Finansial & Kas</span>
+
+                <div class="sidebar-kpi-grid">
+                    <div class="sidebar-kpi-card">
+                        <span class="kpi-label">Kas Perusahaan</span>
+                        <span id="stat-cash" class="kpi-val emerald">$15,000</span>
+                    </div>
+
+                    <div class="sidebar-kpi-card">
+                        <span class="kpi-label">Valuasi Pasar</span>
+                        <span id="stat-valuation" class="kpi-val cyan">$35,000</span>
+                    </div>
+
+                    <div class="sidebar-kpi-card" style="grid-column: span 2;">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <span class="kpi-label">Arus Kas (Velocity)</span>
+                                <span id="stat-rev" class="kpi-val">+$25/s</span>
+                            </div>
+                            <span class="brand-live-pill" style="font-size: 8px;">
+                                <span class="live-dot"></span> REAL-TIME
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- KELOMPOK 3: 🏢 SEKTOR BISNIS & METAVERSE 3D -->
             <div class="sidebar-nav-group">
                 <span class="sidebar-group-title business">🏢 Sektor Bisnis & Metaverse</span>
 
@@ -68,9 +148,9 @@
                 </button>
             </div>
 
-            <!-- KELOMPOK 2: KEUANGAN & PASAR MODAL -->
+            <!-- KELOMPOK 4: 📈 KEUANGAN & PASAR MODAL -->
             <div class="sidebar-nav-group">
-                <span class="sidebar-group-title finance">💰 Keuangan & Pasar Modal</span>
+                <span class="sidebar-group-title finance">📈 Keuangan & Pasar Modal</span>
 
                 <button class="sidebar-nav-item" data-tab="market" onclick="window.bizApp.switchTab('market')">
                     <span class="sidebar-item-icon">📈</span>
@@ -97,7 +177,7 @@
                 </button>
             </div>
 
-            <!-- KELOMPOK 3: FUNGSI WEB & SISTEM SOSIAL -->
+            <!-- KELOMPOK 5: ⚙️ FUNGSI WEB, SOSIAL & SISTEM MODERASI -->
             <div class="sidebar-nav-group">
                 <span class="sidebar-group-title system">⚙️ Fungsi Web, Sosial & Sistem</span>
 
@@ -109,7 +189,7 @@
                     </div>
                 </button>
 
-                <button class="sidebar-nav-item" onclick="window.bizStages.openStagesModal()">
+                <button class="sidebar-nav-item" onclick="window.bizStages.openStagesModal(); window.bizApp.closeSidebar();">
                     <span class="sidebar-item-icon">🗺️</span>
                     <div class="sidebar-item-text">
                         <div>Alur 4 Tahap Karir CEO</div>
@@ -126,9 +206,9 @@
                 </button>
 
                 <button class="sidebar-nav-item" onclick="window.bizAdmin.toggleAdminModal(); window.bizApp.closeSidebar();">
-                    <span class="sidebar-item-icon">🛡️</span>
+                    <span class="sidebar-item-icon" style="color: #ef4444;">🛡️</span>
                     <div class="sidebar-item-text">
-                        <div>Panel Admin & Moderasi</div>
+                        <div style="color: #ef4444;">Panel Admin & Moderasi</div>
                         <div class="sidebar-item-desc">Pengawasan Server & Intervensi Kas</div>
                     </div>
                 </button>
@@ -152,13 +232,13 @@
         </div>
     </aside>
 
-    <!-- BILAH ATAS NAVIGASI PROFESIONAL (TOP NAVBAR) -->
+    <!-- BILAH ATAS TERPISAH (CLEAN & SEPARATED TOP NAVBAR) -->
     <header class="top-nav">
         <div class="brand-section">
-            <!-- Tombol Pembuka Sidebar Kiri -->
-            <button id="btn-sidebar-toggle" class="btn btn-secondary btn-sm" onclick="window.bizApp.toggleSidebar()" title="Buka Menu Sektor Bisnis">
+            <!-- Tombol Pembuka Sidebar Kiri Utama -->
+            <button id="btn-sidebar-toggle" class="btn btn-primary-cyber" onclick="window.bizApp.toggleSidebar()" title="Buka Panel Pusat Kontrol & Menu Sektor">
                 <span style="font-size: 16px;">☰</span>
-                <span>Menu Bisnis</span>
+                <span style="font-weight: 700; font-size: 13px;">Menu & Pusat Kontrol UI</span>
             </button>
 
             <div class="brand-logo-cube">B</div>
@@ -171,71 +251,17 @@
             </div>
         </div>
 
-        <!-- Indikator KPI Finansial Korporat Real-Time -->
-        <div class="kpi-strip">
-            <div class="kpi-item">
-                <span class="kpi-label">Kas Perusahaan</span>
-                <span id="stat-cash" class="kpi-val emerald">$15,000</span>
+        <!-- Kontrol Sisi Kanan: Status & Tombol Layar Penuh -->
+        <div class="top-controls-minimal">
+            <div class="topbar-status-badge">
+                <span class="live-dot"></span>
+                <span>SEMUA KONTROL UI TERPUSAT DI SIDEBAR</span>
             </div>
-            <div class="kpi-divider"></div>
-            <div class="kpi-item">
-                <span class="kpi-label">Valuasi Pasar</span>
-                <span id="stat-valuation" class="kpi-val cyan">$35,000</span>
-            </div>
-            <div class="kpi-divider"></div>
-            <div class="kpi-item">
-                <span class="kpi-label">Arus Kas</span>
-                <span id="stat-rev" class="kpi-val">+$25/s</span>
-            </div>
-            <div class="kpi-divider"></div>
-            <div class="kpi-item">
-                <span class="kpi-label">Status Konglomerat</span>
-                <span id="stat-tier" class="kpi-val" style="font-size: 13px;">Perusahaan Rintisan</span>
-            </div>
-        </div>
-
-        <!-- Kontrol Tindakan & Utilitas Cepat -->
-        <div class="top-controls">
-            <!-- Peta Alur 4 Tahap Karir -->
-            <button class="btn btn-roadmap btn-sm" onclick="window.bizStages.openStagesModal()">
-                <span>🗺️</span>
-                <span id="roadmap-stage-pill">Tahap 1/4: Gabung</span>
-            </button>
-
-            <!-- Tombol Pitch Investor Aktif -->
-            <button id="btn-pitch" class="btn btn-emerald" onclick="window.bizEngine.venturePitchClick()">
-                <span>🚀 Pitch Investor (+$$)</span>
-            </button>
-
-            <!-- Tombol Pengali Pendapatan Viral Blitz -->
-            <button id="btn-viral-boost" class="btn btn-boost" onclick="window.bizEngine.activateBoost()">
-                <span>⚡ Viral Blitz</span>
-            </button>
 
             <!-- Tombol Layar Penuh (Fullscreen) -->
             <button id="btn-fullscreen-toggle" class="btn btn-secondary btn-sm" onclick="window.bizApp.toggleFullscreen()" title="Beralih ke Tampilan Layar Penuh">
                 <span>⛶</span>
                 <span>Layar Penuh</span>
-            </button>
-
-            <!-- Tombol Profil Pengguna -->
-            <button class="btn btn-secondary btn-sm" onclick="document.getElementById('profile-modal').classList.add('active')">
-                <span>👤</span>
-                <span id="profile-display-name">Alex Mercer</span>
-            </button>
-
-            <!-- Tombol Panel Admin -->
-            <button class="btn btn-secondary btn-sm" style="border-color: #ef4444; color: #ef4444;" onclick="window.bizAdmin.toggleAdminModal()" title="Buka Panel Admin & Moderasi">
-                🛡️ Admin
-            </button>
-
-            <!-- Tombol Suara & Musik Ambient -->
-            <button id="btn-sound-toggle" class="btn btn-icon" onclick="
-                const muted = window.bizAudio.toggleMute();
-                this.textContent = muted ? '🔇' : '🔊';
-                if (!muted) window.bizAudio.startAmbient();
-            " title="Aktifkan/Nonaktifkan Suara & Musik Ambient">
-                🔊
             </button>
         </div>
     </header>
